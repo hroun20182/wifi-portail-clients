@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title></head>
+<body>
+  <h2>Panel Admin</h2>
+  <form method="POST" action="/admin/generate">
+    <select name="type">
+      <option value="Jour">Jour</option>
+      <option value="Nuit">Nuit</option>
+    </select>
+    <input type="number" name="count" value="10">
+    <button>Générer Codes</button>
+  </form>
+  <a href="/admin/pdf">Télécharger PDF</a>
+  <table border="1">
+    <tr><th>Code</th><th>Type</th><th>Actif</th></tr>
+    <% codes.forEach(code => { %>
+      <tr>
+        <td><%= code.code %></td>
+        <td><%= code.forfait_type %></td>
+        <td><%= code.used %></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
